@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "57b536b4-1eec-4e89-aaa6-18438ba18200",
+		"name": "CountryLayer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AllCountries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", () => {",
+							"  pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Body contains string as name\",() => {",
+							"  pm.expect(pm.response.text()).to.include(\"name\");",
+							"});",
+							"",
+							"pm.test(\"Body contains string as topLevelDomain\",() => {",
+							"  pm.expect(pm.response.text()).to.include(\"topLevelDomain\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type header is present\", () => {",
+							"  pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", () => {",
+							"  pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "access_key",
+						"value": "e845d8340f1bde98b0bee0d001ec4b96",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/all?access_key=aa0cb914cbfdc63ce057eb6e9872a7e8",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"all"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "aa0cb914cbfdc63ce057eb6e9872a7e8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OneCountrieUS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is OK\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200])",
+							"});",
+							"",
+							"pm.test(\"Test Name\", () => {",
+							"  const jsonData = pm.response.json();",
+							"  pm.expect(jsonData.name).to.eql(\"United States of America\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/alpha/US?access_key=aa0cb914cbfdc63ce057eb6e9872a7e8",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"alpha",
+						"US"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "US",
+							"disabled": true
+						},
+						{
+							"key": "access_key",
+							"value": "aa0cb914cbfdc63ce057eb6e9872a7e8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OneCountrieDE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is OK\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200])",
+							"});",
+							"",
+							"pm.test(\"Test Name\", () => {",
+							"  const jsonData = pm.response.json();",
+							"  pm.expect(jsonData.name).to.eql(\"Germany\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/alpha/DE?access_key=aa0cb914cbfdc63ce057eb6e9872a7e8",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"alpha",
+						"DE"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "US",
+							"disabled": true
+						},
+						{
+							"key": "access_key",
+							"value": "aa0cb914cbfdc63ce057eb6e9872a7e8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OneCountrieGB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is OK\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200])",
+							"});",
+							"",
+							"pm.test(\"Test Name\", () => {",
+							"  const jsonData = pm.response.json();",
+							"  pm.expect(jsonData.name).to.eql(\"United Kingdom of Great Britain and Northern Ireland\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/alpha/GB?access_key=aa0cb914cbfdc63ce057eb6e9872a7e8",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"alpha",
+						"GB"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "US",
+							"disabled": true
+						},
+						{
+							"key": "access_key",
+							"value": "aa0cb914cbfdc63ce057eb6e9872a7e8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InexistentCountries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is Error\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([404])",
+							"});",
+							"",
+							"pm.test(\"Message Error\", () => {",
+							"  const jsonData = pm.response.json();",
+							"  pm.expect(jsonData.message).to.eql(\"Not Found\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/alpha/PEL?access_key=aa0cb914cbfdc63ce057eb6e9872a7e8",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"alpha",
+						"PEL"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "PE",
+							"disabled": true
+						},
+						{
+							"key": "access_key",
+							"value": "aa0cb914cbfdc63ce057eb6e9872a7e8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NewCountry",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is OK\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200])",
+							"});",
+							"",
+							"pm.test(\"Content-Type header is present\", () => {",
+							"  pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", () => {",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    name: \"Test Country\", \n    alpha2_code: \"TC\", \n    alpha3_code: \"TCY\" \n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.countrylayer.com/v2/alpha",
+					"protocol": "http",
+					"host": [
+						"api",
+						"countrylayer",
+						"com"
+					],
+					"path": [
+						"v2",
+						"alpha"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "US",
+							"disabled": true
+						},
+						{
+							"key": "access_key",
+							"value": "aa0cb914cbfdc63ce057eb6e9872a7e8",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
